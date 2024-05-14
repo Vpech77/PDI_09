@@ -58,7 +58,6 @@ if __name__ == "__main__":
         combined = np.concatenate([raw, msk, raw* msk], axis = 1)
         plt.axis('off')
         plt.imshow(combined)
-        plt.savefig('./output_testing/'+MODEL_NAME+str(i)+'.png')
-        #plt.show()
+        plt.savefig('./output_testing/cartes'+IMG_TEST_NAME+MODEL_NAME+str(i)+'.png')
         i+=1
 
