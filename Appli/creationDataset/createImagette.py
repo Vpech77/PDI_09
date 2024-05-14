@@ -1,20 +1,20 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 30 11:54:35 2024
+####################################################
+#   Générer les imagettes du dataset               #
+#                   Par l'équipe LostInSwamp       #
+####################################################
 
-@author: LostInSwamp
-"""
 import os
 import imageio
 from PIL import Image
 
-def decouper_images(input_folder, output_folder, taille=254):
+def decouper_images(input_folder, output_folder, taille=256):
     """ 
-    Cette fonction prend en entrée nos images normales en png (masque et carte) dans le fichier ./tiff/mask pour
-    le masque et le fichier ./tiff/normal pour la carte. Le fichier de sortie et la taille de découpage de 254X254.
-    
-    En sortie nous obtenons nos images découpées dans le fichier ./png/normal pour les images de notre carte
-    et le fichier ./png/mask pour notre image du masque.
+    Fonction qui prend en entrée un dossier contenant une image png (image de carte ou masque) et découpe
+    ces images en imagettes de taille donnée et les mets dans le dossier de sortie indiqué en argument.
+
+    :param str input_folder: nom du fichier contenant l'image à découper
+    :param str output_folder: nom du fichier qui contiendra les imagettes créees 
+    :param int taille: taille des imagettes par défault 256
     """
     
     fichiers = os.listdir(input_folder)
@@ -38,15 +38,13 @@ def decouper_images(input_folder, output_folder, taille=254):
                     output_path = os.path.join(output_folder, nom_morceau)
                     morceau.save(output_path)
 
-
-
-
 def couleur_to_binaire(input_folder, output_folder):
     """
-    Cette fonction permet de passer d'une image couleur à une image binaire pour le masque.
-    On met en entrée le fichier avec les masques découpés ./png/mask.
-    En sortie, on obtient des images binaire en png dans le fichier ./png/mask_bw.
+    Fonction qui transforme toutes les images couleurs contenu dans le dossier
+    donnée en entrée en images binaire en les mettant dans un autre dossier.
 
+    :param str input_folder: nom du fichier contenant les images couleurs
+    :param str output_folder: nom du fichier qui contiendra les images binaires
     """
     fichiers = os.listdir(input_folder)
     for fichier in fichiers:
@@ -62,13 +60,10 @@ def couleur_to_binaire(input_folder, output_folder):
                     image.putpixel((x, y), nouvelle_valeur)
             output_path = os.path.join(output_folder, fichier)
             image.save(output_path)
-           
-
 
 def renommer_fichiers(input_folder):
     """
-    Cette Fonction permet de renommer les fichier des images binaires par leur nom initial + _mask
-    Celà est nécessaire pour que l'IA fonctionne.
+    Fonction qui renomme les fichier des images binaires (masque) par leur nom initial + _mask
     """
     
     fichiers = os.listdir(input_folder)
@@ -110,8 +105,6 @@ if __name__ == "__main__":
     input_folder_mask = "./tif/mask2006"
     output_folder_mask = "./png/mask"
     output_folder_mask_bw = "./png/mask_bw2006"
-
-
 
     """
     #Style carte ancienne 2007
