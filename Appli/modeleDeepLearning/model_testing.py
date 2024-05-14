@@ -1,3 +1,8 @@
+####################################################
+# Test du modèle sur de vraies images              #
+# Par l'équipe LostInSwamp                         #
+####################################################
+
 import numpy as np
 import matplotlib.pyplot as plt
 import os
