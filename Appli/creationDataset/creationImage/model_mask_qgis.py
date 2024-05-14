@@ -3,13 +3,10 @@
 #  Par l'équipe LostInSwamp                        #
 ####################################################
 
-
-
 from qgis.core import QgsProject, QgsSvgMarkerSymbolLayer
 
 ############################## Création du masque ##############################
 
-##Exemple sur une région aux alentours de l'Ourq
 ##1 : Creation d'une grille recouvrant le region que l'on souhaite etudier, ici Ourq. 
 
 processing.run("native:creategrid", 
@@ -32,10 +29,8 @@ rectangle noir qui sera le fond de notre masque
 """
 
 coucheGrille = QgsVectorLayer("grilleOurq.shp", "grilleOurq", "ogr")
-coucheGrille.loadNamedStyle('D:/carte_ancienne_2006/Qgis/stylemasque.qml')
-QgsProject.instance().addMapLayer(coucheGrille)
-
-## Le fichier D:/carte_ancienne_2006/Qgis/stylemasque.qml contient un style que nous avons prealablement cree en amont que que ce soit plus simple à l'appliquer ensuite. Ce sera la même chose pour le style des pictogrammes
+# coucheGrille.loadNamedStyle('D:/carte_ancienne_2006/Qgis/stylemasque.qml')
+# QgsProject.instance().addMapLayer(coucheGrille)
 
 #2 : On repare la geometrie de la couche zone_veget_aquatique car celle ci etait invalide. 
 
@@ -49,7 +44,6 @@ processing.run("native:fixgeometries",
 #OUTPUT: Chemin vers le fichier de sortie contenant la couche avec les geometries reparees.
 
 #3: Maintenant, on va recuperer les zones de marais se trouvant dans la grille que nous avons cree.
-
 
 processing.run("native:clip", 
                 {'INPUT':'marais.shp',
