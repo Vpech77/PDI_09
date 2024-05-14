@@ -44,29 +44,39 @@ MODEL_NAME = 'unet_32batch_30epoch'
 IMG_TEST_FOLDER = '2006'
 
 if __name__ == "__main__":
-    model = keras.models.load_model("./model/"+MODEL_NAME+".keras", custom_objects={"mean_iou": mean_iou})
+
+    dossier_git = 'model'
+
+    if os.path.isdir(dossier_git):
+        contenu_dossier = os.listdir(dossier_git)
+        print(contenu_dossier)
+    else:
+        print("nope")
+
+    # model = keras.models.load_model('unet_32batch_30epoch.keras', custom_objects={"mean_iou": mean_iou})
     test = os.listdir(IMG_TEST_FOLDER)
-    i=1
+    # i=1
     for image in test :
         path = os.path.join("./imgCartesAnciennes"+IMG_TEST_FOLDER, image)
         raw = Image.open(path)
         raw = np.array(raw.resize((256, 256)))/255.
         raw = raw[:,:,0:3]
+        print(raw)
 
-        #predict the mask
-        pred = model.predict(np.expand_dims(raw, 0))
+    #     #predict the mask
+    #     pred = model.predict(np.expand_dims(raw, 0))
 
-        #mask post-processing
-        msk  = pred.squeeze()
-        msk = np.stack((msk,)*3, axis=-1)
-        msk[msk >= 0.5] = 1
-        msk[msk < 0.5] = 0
+    #     #mask post-processing
+    #     msk  = pred.squeeze()
+    #     msk = np.stack((msk,)*3, axis=-1)
+    #     msk[msk >= 0.5] = 1
+    #     msk[msk < 0.5] = 0
 
-        #show the mask and the segmented image
-        combined = np.concatenate([raw, msk, raw* msk], axis = 1)
-        plt.axis('off')
-        plt.imshow(combined)
-        plt.savefig('./imgCartesAnciennes/'+MODEL_NAME+str(i)+'.png')
-        #plt.show()
-        i+=1
+    #     #show the mask and the segmented image
+    #     combined = np.concatenate([raw, msk, raw* msk], axis = 1)
+    #     plt.axis('off')
+    #     plt.imshow(combined)
+    #     plt.savefig('./imgCartesAnciennes/'+MODEL_NAME+str(i)+'.png')
+    #     #plt.show()
+    #     i+=1
 
