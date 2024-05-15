@@ -76,26 +76,6 @@ def renommer_fichiers(input_folder):
             output_path = os.path.join(input_folder, nouveau_nom)
             os.rename(input_path, output_path)
 
-def remove_mask_from_title(directory):
-    for filename in os.listdir(directory):
-        # Séparation du nom du fichier et de l'extension
-        name, extension = os.path.splitext(filename)
-        
-        # Vérifier si "_mask" est présent dans le nom du fichier
-        if "_mask" in name:
-            # Construire le nouveau nom de fichier sans "_mask"
-            new_name = name.replace("_mask", "")
-            new_filename = new_name + extension
-            
-            # Ancien et nouveau chemin
-            old_path = os.path.join(directory, filename)
-            new_path = os.path.join(directory, new_filename)
-            
-            # Renommer le fichier
-            os.rename(old_path, new_path)
-            print(f"Le fichier {filename} a été renommé en {new_filename}")
-
-
 if __name__ == "__main__":
 
     #Style carte ancienne 1997
