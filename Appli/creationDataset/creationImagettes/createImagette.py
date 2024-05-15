@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ####################################################
 #   Générer les imagettes du dataset               #
 #                   Par l'équipe LostInSwamp       #

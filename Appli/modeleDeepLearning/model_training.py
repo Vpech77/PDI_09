@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ####################################################
 #     Entraînement du modèle Unet                  #
 #                   Par l'équipe LostInSwamp       #

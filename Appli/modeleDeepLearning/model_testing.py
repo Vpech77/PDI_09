@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ####################################################
 # Test du modèle sur de vraies images              #
 # Par l'équipe LostInSwamp                         #
