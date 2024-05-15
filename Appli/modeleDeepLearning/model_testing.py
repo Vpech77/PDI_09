@@ -14,7 +14,7 @@ from keras import backend as K
 import tensorflow as tf
 
 ##################### Variables #####################
-MODEL_NAME = 'unet_32batch_30epoch'
+MODEL_NAME = 'unet_16batch_60epoch'
 IMG_TEST_NAME = '2006'
 
 PATH_IMG_TEST = "./imgCartesAnciennes/" + IMG_TEST_NAME
