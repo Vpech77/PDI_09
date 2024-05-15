@@ -3,6 +3,7 @@
 #                   Par l'équipe LostInSwamp       #
 ####################################################
 
+##################### Import des librairies #####################
 import os
 import imageio
 from PIL import Image

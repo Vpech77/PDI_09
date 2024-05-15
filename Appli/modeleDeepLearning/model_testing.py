@@ -3,6 +3,7 @@
 # Par l'équipe LostInSwamp                         #
 ####################################################
 
+##################### Import des librairies #####################
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -10,6 +11,13 @@ from PIL import Image
 import keras
 from keras import backend as K
 import tensorflow as tf
+
+##################### Variables #####################
+MODEL_NAME = 'unet_32batch_30epoch'
+IMG_TEST_NAME = '2006'
+
+PATH_IMG_TEST = "./imgCartesAnciennes/" + IMG_TEST_NAME
+PATH_MODEL_FILE = "./model/" + MODEL_NAME + ".keras"
 
 def mean_iou(y_true, y_pred):
     '''
@@ -31,12 +39,6 @@ def mean_iou(y_true, y_pred):
     union = tf.math.count_nonzero(tf.add(yt0, yp0))
     iou = tf.where(tf.equal(union, 0), 1., tf.cast(inter/union, 'float32'))
     return iou
-
-MODEL_NAME = 'unet_32batch_30epoch'
-IMG_TEST_NAME = '2006'
-
-PATH_IMG_TEST = "./imgCartesAnciennes/" + IMG_TEST_NAME
-PATH_MODEL_FILE = "./model/" + MODEL_NAME + ".keras"
 
 if __name__ == "__main__":
 
