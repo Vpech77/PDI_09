@@ -3,6 +3,7 @@
 #                   Par l'équipe LostInSwamp       #
 ####################################################
 
+##################### Import des librairies #####################
 
 import numpy as np
 import pandas as pd
@@ -11,20 +12,25 @@ import os
 from PIL import Image
 import keras
 from keras.models import Model
-from keras.layers import Conv2D, MaxPooling2D, Input, Conv2DTranspose, Concatenate, BatchNormalization, UpSampling2D
-from keras.layers import  Dropout, Activation
+from keras.layers import Conv2D, MaxPooling2D, Input, Conv2DTranspose, Concatenate
 from keras.optimizers import Adam, SGD
-from keras.layers import LeakyReLU
-from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
+from keras.callbacks import ModelCheckpoint
 import tensorflow.keras.backend as K
 from keras.utils import plot_model
 import tensorflow as tf
-import glob
-import random
-#import cv2
 from random import shuffle
 
-"""# Dataset"""
+##################### Variables #####################
+
+BATCH_SIZE = 128
+EPOCH = 2
+MODEL_NAME = "unet_" + str(BATCH_SIZE) + "batch_" + str(EPOCH) + "epoch"
+PATH_OUTPUT = "./output_training/" + MODEL_NAME + "_results"
+
+# Dataframe des performances du model obtenu après l'entraînement
+df = pd.DataFrame()
+
+##################### Traitement des images du dataset #####################
 
 def image_generator(files, batch_size = 32, sz = (256, 256)):
     '''
@@ -48,7 +54,6 @@ def image_generator(files, batch_size = 32, sz = (256, 256)):
         matrice des masques de shape (batch_size, sz[0], sz[1], 1).
         MATRICE 4D ATTENDUE PAR CNN (convolutional neural network)
     '''
-
     while True:
 
       #extract a random batch
@@ -89,30 +94,7 @@ def image_generator(files, batch_size = 32, sz = (256, 256)):
 
       yield (batch_x, batch_y)
 
-batch_size = 16
-
-all_files = os.listdir('./Dataset/images')
-shuffle(all_files)
-
-split = int(0.95 * len(all_files))
-
-#split into training and testing
-train_files = all_files[0:split]
-test_files  = all_files[split:]
-
-train_generator = image_generator(train_files, batch_size = batch_size)
-test_generator  = image_generator(test_files, batch_size = batch_size)
-
-x, y= next(train_generator)
-
-plt.axis('off')
-img = x[0]
-msk = y[0].squeeze()
-msk = np.stack((msk,)*3, axis=-1)
-
-plt.imshow(np.concatenate([img, msk, img*msk], axis = 1))
-
-"""# Metric"""
+############ Metrique pour mesurer les performances du modele ##################
 
 def mean_iou(y_true, y_pred):
     '''
@@ -135,8 +117,7 @@ def mean_iou(y_true, y_pred):
     iou = tf.where(tf.equal(union, 0), 1., tf.cast(inter/union, 'float32'))
     return iou
 
-"""# Model"""
-
+################## Construction du modele ######################
 
 def unet(sz = (256, 256, 3)):
   '''
@@ -183,7 +164,6 @@ def unet(sz = (256, 256, 3)):
     x = Concatenate(axis=3)([x, layers[j]])
     j = j -1
 
-
   #classification
   x = Conv2D(f, 3, activation='relu', padding='same') (x)
   x = Conv2D(f, 3, activation='relu', padding='same') (x)
@@ -195,19 +175,15 @@ def unet(sz = (256, 256, 3)):
 
   return model
 
-model = unet()
-
-"""# Callbacks
-
-"""
-
-df = pd.DataFrame()
+############################## Callbacks ##############################
 
 def build_callbacks():
+        """
+        Fonction qui réer un objet rappel (callbacks) lors de l’entraînement d’un modèle U-Net, ce rappel sauvegarde les poids du modèle à chaque époque pendant l’entraînement. Ce rappel est utile pour reprendre l’entraînement à partir du point où il s’est arrêté en cas d’interruption.
+        """
         checkpointer = ModelCheckpoint(filepath='unet.weights.h5', verbose=0, save_best_only=True, save_weights_only=True)
         callbacks = [checkpointer, PlotLearning()]
         return callbacks
-
 
 # inheritance for training process plot
 class PlotLearning(keras.callbacks.Callback):
@@ -219,8 +195,8 @@ class PlotLearning(keras.callbacks.Callback):
         self.val_losses = []
         self.acc = []
         self.val_acc = []
-        #self.fig = plt.figure()
         self.logs = []
+
     def on_epoch_end(self, epoch, logs={}, df=df):
         self.logs.append(logs)
         self.x.append(self.i)
@@ -230,7 +206,7 @@ class PlotLearning(keras.callbacks.Callback):
         self.val_acc.append(logs.get('val_mean_iou'))
         self.i += 1
 
-        print('i=',self.i,'loss=',logs.get('loss'),'val_loss=',logs.get('val_loss'),'mean_iou=',logs.get('mean_iou'),'val_mean_iou=',logs.get('val_mean_iou'))
+        print('loss=',logs.get('loss'),'val_loss=',logs.get('val_loss'),'mean_iou=',logs.get('mean_iou'),'val_mean_iou=',logs.get('val_mean_iou'))
 
         #choose a random test image and preprocess
         path = np.random.choice(test_files)
@@ -251,8 +227,7 @@ class PlotLearning(keras.callbacks.Callback):
         combined = np.concatenate([raw, msk, raw* msk], axis = 1)
         plt.axis('off')
         plt.imshow(combined)
-        plt.savefig(str(self.i)+'.png')
-        plt.show()
+        plt.savefig(PATH_OUTPUT+"/"+MODEL_NAME+"_"+str(self.i)+".png")
 
     def on_train_end(self,logs={}):
       df['nb_epoch'] = self.x
@@ -260,17 +235,41 @@ class PlotLearning(keras.callbacks.Callback):
       df['val_loss'] = self.val_losses
       df['mean_iou'] = self.acc
       df['val_mean_iou'] = self.val_acc
-      df.to_csv('df_epochs1_batch8', sep=',', index=False, encoding='utf-8')
+      df.to_csv(PATH_OUTPUT+"/df_"+MODEL_NAME, sep=',', index=False, encoding='utf-8')
       df.plot(x='nb_epoch',y=['loss','val_loss','mean_iou','val_mean_iou'], marker = '.')
-      plt.savefig('df_epochs1_batch8.png')
+      plt.savefig(PATH_OUTPUT+"/df_"+MODEL_NAME+'.png')
 
+if __name__ == "__main__":
 
+    all_files = os.listdir('./Dataset/images')
 
-train_steps = len(train_files)//batch_size
-print(len(train_files), batch_size, train_steps)
-test_steps = len(test_files)//batch_size
-model.fit(train_generator,epochs = 10, steps_per_epoch = train_steps,
-          validation_data = test_generator, validation_steps = test_steps,
-          callbacks = build_callbacks(), verbose = 1)
+    os.makedirs(PATH_OUTPUT)
 
-model.save("model.keras")
+    ############ Traitement des images du dataset ############
+
+    shuffle(all_files)
+    split = int(0.95 * len(all_files))
+
+    #split into training and testing
+    train_files = all_files[0:split]
+    test_files  = all_files[split:]
+
+    train_generator = image_generator(train_files, batch_size = BATCH_SIZE)
+    test_generator  = image_generator(test_files, batch_size = BATCH_SIZE)
+
+    x, y = next(train_generator)
+
+    ############ Création du modele ############   
+
+    model = unet()
+    
+    ############ Entrainement du modele ############   
+
+    train_steps = len(train_files)//BATCH_SIZE
+    print(len(train_files), BATCH_SIZE, train_steps)
+    test_steps = len(test_files)//BATCH_SIZE
+    model.fit(train_generator,epochs = EPOCH, steps_per_epoch = train_steps,
+            validation_data = test_generator, validation_steps = test_steps,
+            callbacks = build_callbacks(), verbose = 1)
+    
+    model.save("./model/"+MODEL_NAME+".keras")
