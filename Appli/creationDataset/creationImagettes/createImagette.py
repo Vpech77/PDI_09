@@ -11,14 +11,12 @@ from PIL import Image
 
 def decouper_images(input_folder, output_folder, taille=256):
     """ 
-    Fonction qui prend en entrée un dossier contenant une image png (image de carte ou masque) et découpe
-    ces images en imagettes de taille donnée et les mets dans le dossier de sortie indiqué en argument.
+    Fonction qui prend en entrée un dossier contenant une image png (image de carte ou masque) et découpe ces images en imagettes de taille donnée et les mets dans le dossier de sortie indiqué en argument.
 
     :param str input_folder: nom du fichier contenant l'image à découper
-    :param str output_folder: nom du fichier qui contiendra les imagettes créees 
-    :param int taille: taille des imagettes par défault 256
+    :param str output_folder: nom du fichier qui contiendra les imagettes      créees 
+    :param int taille: taille des imagettes par défault égale à 256
     """
-    
     fichiers = os.listdir(input_folder)
     for fichier in fichiers:
         if fichier.lower().endswith('.png'):
@@ -65,9 +63,8 @@ def couleur_to_binaire(input_folder, output_folder):
 
 def renommer_fichiers(input_folder):
     """
-    Fonction qui renomme les fichier des images binaires (masque) par leur nom initial + _mask
+    Fonction qui renomme les fichier des images binaires (masque) par leur nom initial en y ajoutant le suffixe '_mask'
     """
-    
     fichiers = os.listdir(input_folder)
     for fichier in fichiers:
         input_path = os.path.join(input_folder, fichier)
@@ -79,30 +76,21 @@ def renommer_fichiers(input_folder):
 
 if __name__ == "__main__":
 
-    #Style carte ancienne 1997
+    NameModele_png = "2007"
+    NameMasque_png = NameModele_png + "masque"
 
-    input_folder = "./tif/normal2006"
-    output_folder = "./png/Normal2006"
+    ################### Nom des fichiers ########################
+    input_folder = "./modele"
+    output_folder = "./tuile_modele"
 
-    input_folder_mask = "./tif/mask2006"
-    output_folder_mask = "./png/mask"
-    output_folder_mask_bw = "./png/mask_bw2006"
+    input_folder_mask = "./masque"
+    output_folder_mask = "./tuile_masque_brut"
+    output_folder_mask_bw = "./tuile_modele"
 
-    """
-    #Style carte ancienne 2007
-
-    input_folder = "./tif/normal2007"
-    output_folder = "./png/Normal2007"
-
-    input_folder_mask = "./tif/mask2007"
-    output_folder_mask = "./png/mask2007"
-    output_folder_mask_bw = "./png/mask_bw2007"
-    """
-
-    #remove_mask_from_title(output_folder_mask_bw)
-    # decouper_images(input_folder, output_folder)
-    # decouper_images(input_folder_mask, output_folder_mask)
-    # couleur_to_binaire(output_folder_mask, output_folder_mask_bw)
+    ################### Début de la création du dataset ########################
+    decouper_images(input_folder, output_folder)
+    decouper_images(input_folder_mask, output_folder_mask)
+    couleur_to_binaire(output_folder_mask, output_folder_mask_bw)
     renommer_fichiers(output_folder_mask_bw)
 
 
