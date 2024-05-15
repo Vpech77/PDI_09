@@ -1,6 +1,6 @@
 # Guide d'utilisateur (Wip)
 L’équipe LostInSwamp est ravie de vous présenter Swampy, notre application créée avec énormément de passion.
-Grâce à notre application, vous pouvez non seulement générer des jeux d’entraînement essentiels pour créer votre modèle de deep learning, mais aussi créer votre propre modèle de deep learning.
+Grâce à notre application, vous pouvez non seulement générer des jeux d’entraînement essentiels pour créer votre modèle de deep learning, mais aussi créer votre propre modèle de deep learning ! Mais c'est incroyable !
 
 # Générez votre dataset
 
