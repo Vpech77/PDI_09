@@ -6,7 +6,7 @@ Si vous voulez détecter des pictogrammes dans des images de cartes anciennes gr
 
 # 🌟 Créer votre propre modèle de deep learning 🌟
 
-Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour entraîner votre modele et le tester sur les images de cartes anciennes que vous voulez. Enjoy! !(•̀ᴗ•́)و ̑̑
+Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour entraîner votre modele et le tester sur les images de cartes anciennes que vous voulez. Enjoy! (◕‿◕✿)
 
 ## 🖥️ Avec un environnement local 🖥️
 
