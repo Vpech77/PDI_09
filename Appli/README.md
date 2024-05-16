@@ -19,8 +19,10 @@ Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour ent
 Si vous voulez utiliser un autre dataset, remplacez ce dossier par votre propre dossier Dataset et respecter l'arborescence du dossier en gardant les mêmes noms de dossier.
 
 - C'est avec le script python *model_training.py* que vous allez entraîner votre modèle. Vous pouvez définir les hyperparamètres du modèle en modifiant dans le script les valeurs : ligne 26 pour le **batch size** et ligne 27 pour l'**epoch**. Et vous n'avez plus qu'à exécuter le code.
+  
   - Votre modèle entrainé est directement sauvegardé dans le dossier *model* et prend automatiquement le nom 𝐮𝐧𝐞𝐭_<𝐛𝐚𝐭𝐜𝐡_𝐬𝐢𝐳𝐞>𝐛𝐚𝐭𝐜𝐡_<𝐞𝐩𝐨𝐜𝐡>𝐞𝐩𝐨𝐜𝐡.𝐤𝐞𝐫𝐚𝐬
   - Dans le dossier *output_training*, est généré automatiquement le dossier 𝐮𝐧𝐞𝐭_<𝐛𝐚𝐭𝐜𝐡_𝐬𝐢𝐳𝐞>𝐛𝐚𝐭𝐜𝐡_<𝐞𝐩𝐨𝐜𝐡>𝐞𝐩𝐨𝐜𝐡_𝐫𝐞𝐬𝐮𝐥𝐭𝐬 lié à l'entrainement de votre modèle et contient donc :
+    
       - le csv et le dataframe contenant les paramètres de performances du modèle
       - le graphique de ses performances
       - une image résultat généré après chaque epoch : pour chaque epoch, le modèle s'entraîne avec toutes les images du jeu d'entrainement et tire au hasard une image dans le jeu de validation et après son entrainement se teste avec, c'est cette image qui est générée.
