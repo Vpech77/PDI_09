@@ -10,9 +10,12 @@ Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour ent
 
 ## 🖥️ Avec un environnement local 🖥️
 
-### Entraînement du modèle
+###  🏋️‍♂️ Entraînement du modèle 🏋️‍♂️
 
-- Le dossier *Dataset* contient le premier dataset de base de l'équipe LostInSwamp et est composé de deux dossiers : *images* qui contient les images modèles et *annotations* qui contient les masques de ces images modèles. Si vous voulez utiliser un autre dataset, remplacez ce dossier par votre propre dossier Dataset et respecter l'arborescence du dossier en gardant les mêmes noms de dossier.
+- Le dossier *Dataset* contient le premier dataset de base de l'équipe LostInSwamp et est composé de deux dossiers :
+    1. *images* qui contient les images modèles
+    2. *annotations* qui contient les masques de ces images modèles.
+- Si vous voulez utiliser un autre dataset, remplacez ce dossier par votre propre dossier Dataset et respecter l'arborescence du dossier en gardant les mêmes noms de dossier.
 
 - C'est avec le script python *model_training.py* que vous allez entraîner votre modèle. Vous pouvez définir les hyperparamètres du modèle en modifiant dans le script les valeurs : ligne 26 pour le **batch size** et ligne 27 pour l'**epoch**. Et vous n'avez plus qu'à exécuter le code.
   - Votre modèle entrainé est directement sauvegardé dans le dossier *model* et prend automatiquement le nom 𝐮𝐧𝐞𝐭_<𝐛𝐚𝐭𝐜𝐡_𝐬𝐢𝐳𝐞>𝐛𝐚𝐭𝐜𝐡_<𝐞𝐩𝐨𝐜𝐡>𝐞𝐩𝐨𝐜𝐡.𝐤𝐞𝐫𝐚𝐬
@@ -21,9 +24,10 @@ Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour ent
       - le graphique de ses performances
       - une image résultat généré après chaque epoch : pour chaque epoch, le modèle s'entraîne avec toutes les images du jeu d'entrainement et tire au hasard une image dans le jeu de validation et après son entrainement se teste avec, c'est cette image qui est générée.
 
-### Test du modèle
+### 💯 Test du modèle 💯
 
 - C'est avec le script *model_testing* que vous allez tester votre modèle. Tout d'abord, définissez dans le script, ligne 17 le nom du modèle que vous voulez tester et qui se trouve dans le dossier *model* ainsi que le nom du dossier contenant les images à tester, ce dossier doit se trouver dans le dossier *imgCartesAnciennes*. Ce dossier *imgCartesAnciennes* contient deux dossiers d'imagettes de cartes anciennes.
+  
 - Les images résultats du test se retrouvent automatiquement dans le dossier *output_testing*
 
 ## 🌐 Avec un environnement virtuel 🌐
