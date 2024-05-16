@@ -15,7 +15,7 @@ Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour ent
 - Le dossier *Dataset* contient le premier dataset de base de l'équipe LostInSwamp et est composé de deux dossiers : *images* qui contient les images modèles et *annotations* qui contient les masques de ces images modèles. Si vous voulez utiliser un autre dataset, remplacez ce dossier par votre propre dossier Dataset et respecter l'arborescence du dossier en gardant les mêmes noms de dossier.
 
 - C'est avec le script python *model_training.py* que vous allez entraîner votre modèle. Vous pouvez définir les hyperparamètres du modèle en modifiant dans le script les valeurs : ligne 26 pour le **batch size** et ligne 27 pour l'**epoch**. Et vous n'avez plus qu'à exécuter le code.
-  - Votre modèle entrainé est directement sauvegardé dans le dossier *model* et prend automatiquement le nom ***unet_<batch_size>batch_<epoch>epoch.keras***
+  - Votre modèle entrainé est directement sauvegardé dans le dossier *model* et prend automatiquement le nom ***unet_<batch_size>batch_'<epoch>'epoch.keras***
   - Dans le dossier *output_training*, est généré automatiquement le dossier ***unet_<batch_size>batch_<epoch>epoch_results*** lié à l'entrainement de votre modèle et contient donc :
       - le csv et le dataframe contenant les paramètres de performances du modèle
       - le graphique de ses performances
