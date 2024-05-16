@@ -21,10 +21,14 @@ from keras.utils import plot_model
 import tensorflow as tf
 from random import shuffle
 
+##################### Hyperparamètres à définir #####################
+
+BATCH_SIZE = 64
+EPOCH = 2
+
 ##################### Variables #####################
 
-BATCH_SIZE = 128
-EPOCH = 2
+
 MODEL_NAME = "unet_" + str(BATCH_SIZE) + "batch_" + str(EPOCH) + "epoch"
 PATH_OUTPUT = "./output_training/" + MODEL_NAME + "_results"
 
@@ -182,7 +186,7 @@ def build_callbacks():
         """
         Fonction qui réer un objet rappel (callbacks) lors de l’entraînement d’un modèle U-Net, ce rappel sauvegarde les poids du modèle à chaque époque pendant l’entraînement. Ce rappel est utile pour reprendre l’entraînement à partir du point où il s’est arrêté en cas d’interruption.
         """
-        checkpointer = ModelCheckpoint(filepath='unet.weights.h5', verbose=0, save_best_only=True, save_weights_only=True)
+        checkpointer = ModelCheckpoint(filepath=PATH_OUTPUT+"/"+'unet.weights.h5', verbose=0, save_best_only=True, save_weights_only=True)
         callbacks = [checkpointer, PlotLearning()]
         return callbacks
 

@@ -13,10 +13,11 @@ import keras
 from keras import backend as K
 import tensorflow as tf
 
-##################### Variables #####################
+##################### Variables à définir #####################
 MODEL_NAME = 'unet_16batch_60epoch'
 IMG_TEST_NAME = '2006'
 
+##################### Variables #####################
 PATH_IMG_TEST = "./imgCartesAnciennes/" + IMG_TEST_NAME
 PATH_MODEL_FILE = "./model/" + MODEL_NAME + ".keras"
 
@@ -66,6 +67,6 @@ if __name__ == "__main__":
         combined = np.concatenate([raw, msk, raw* msk], axis = 1)
         plt.axis('off')
         plt.imshow(combined)
-        plt.savefig('./output_testing/cartes'+IMG_TEST_NAME+MODEL_NAME+str(i)+'.png')
+        plt.savefig('./output_testing/cartes_'+IMG_TEST_NAME+MODEL_NAME+str(i)+'.png')
         i+=1
 
