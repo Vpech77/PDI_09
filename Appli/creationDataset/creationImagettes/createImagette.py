@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     input_folder_mask = "./masque"
     output_folder_mask = "./tuile_masque_brut"
-    output_folder_mask_bw = "./tuile_modele"
+    output_folder_mask_bw = "./tuile_masque"
 
     ################### Début de la création du dataset ########################
     decouper_images(input_folder, output_folder)
