@@ -23,11 +23,10 @@ from random import shuffle
 
 ##################### Hyperparamètres à définir #####################
 
-BATCH_SIZE = 64
-EPOCH = 2
+BATCH_SIZE = 8
+EPOCH = 40
 
 ##################### Variables #####################
-
 
 MODEL_NAME = "unet_" + str(BATCH_SIZE) + "batch_" + str(EPOCH) + "epoch"
 PATH_OUTPUT = "./output_training/" + MODEL_NAME + "_results"

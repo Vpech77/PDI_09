@@ -20,6 +20,7 @@ IMG_TEST_NAME = '2006'
 ##################### Variables #####################
 PATH_IMG_TEST = "./imgCartesAnciennes/" + IMG_TEST_NAME
 PATH_MODEL_FILE = "./model/" + MODEL_NAME + ".keras"
+PATH_OUTPUT = "./output_testing/" + MODEL_NAME
 
 def mean_iou(y_true, y_pred):
     '''
@@ -46,8 +47,9 @@ if __name__ == "__main__":
 
     model = keras.models.load_model(PATH_MODEL_FILE, custom_objects={"mean_iou": mean_iou})
     test = os.listdir(PATH_IMG_TEST)
+    os.makedirs(PATH_OUTPUT)
 
-    i=1
+    cpt=1
     for image in test :
         path = os.path.join(PATH_IMG_TEST, image)
         raw = Image.open(path)
@@ -67,6 +69,6 @@ if __name__ == "__main__":
         combined = np.concatenate([raw, msk, raw* msk], axis = 1)
         plt.axis('off')
         plt.imshow(combined)
-        plt.savefig('./output_testing/cartes_'+IMG_TEST_NAME+MODEL_NAME+str(i)+'.png')
-        i+=1
+        plt.savefig(PATH_OUTPUT+'/cartes_'+IMG_TEST_NAME+'_'+MODEL_NAME+str(cpt)+'.png')
+        cpt+=1
 
