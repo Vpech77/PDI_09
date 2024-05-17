@@ -14,7 +14,7 @@ from keras import backend as K
 import tensorflow as tf
 
 ##################### Variables à définir #####################
-MODEL_NAME = 'unet_16batch_60epoch'
+MODEL_NAME = 'unet_32batch_30epoch'
 IMG_TEST_NAME = '2006'
 
 ##################### Variables #####################
