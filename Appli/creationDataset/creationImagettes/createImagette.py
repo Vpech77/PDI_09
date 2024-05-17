@@ -6,7 +6,6 @@
 
 ##################### Import des librairies #####################
 import os
-import imageio
 from PIL import Image
 
 def decouper_images(input_folder, output_folder, taille=256):
@@ -76,10 +75,7 @@ def renommer_fichiers(input_folder):
 
 if __name__ == "__main__":
 
-    NameModele_png = "2007"
-    NameMasque_png = NameModele_png + "masque"
-
-    ################### Nom des fichiers ########################
+    ################### Nom des dossiers ########################
     input_folder = "./modele"
     output_folder = "./tuile_modele"
 
