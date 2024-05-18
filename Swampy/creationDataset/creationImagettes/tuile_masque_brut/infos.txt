@@ -1,0 +1,1 @@
+ici se trouve les tuiles brutes de vos masques contenus dans le dossier masque. Ce ne sont pas des images binaires il faut les convertir pour le modèle.
