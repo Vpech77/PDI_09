@@ -22,3 +22,9 @@ pip install tensorflow==2.15
 - Lilia Campo
 - Suzanne Lizot
 - Elisa Peyrard
+
+## 🌳 Commanditaires 🌳
+
+- Hervé Quninquenel
+- Guillaume Touya
+- Azelle Courtial
