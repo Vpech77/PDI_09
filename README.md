@@ -1,7 +1,5 @@
 # PDI_09 
 
-![Static Badge](https://img.shields.io/badge/Lost_Swampy)
-
 Voici le répertoire du projet Géodev² 2024 du groupe PDI_09.
 
 # Installation
