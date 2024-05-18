@@ -4,6 +4,19 @@ Si vous voulez détecter des pictogrammes dans des images de cartes anciennes gr
 
 # ⭐ Générez votre dataset ⭐
 
+Pour rappel, le dataset est composé de tuiles d'images modèles de cartes possédant des pictogrammes ou non et les tuiles du masque de ses images modèles.
+
+## 🎭 Créer votre masque dans votre projet QGIS 🎭
+
+1. Lancez le script *model_mask_qgis.py* du dossier *creationImage* dans la console python de QGIS (ctrl+alt+P pour y accéder).
+2. Exportez votre projet en format PNG.
+
+## ✂️ Générer les tuiles de vos images ✂️
+
+1. Mettez toutes vos images PNG générées précédemment dans le dossier *modele* si ce sont des images modèles sinon dans le dossier *masque*.
+2. Lancez le script *createImagette.py*, attendez un peu et vous trouverez les tuiles dans les dossiers correspondant.
+3. Créer un dossier *Dataset* avec deux sous-dossier : *images* pour y mettre vos tuiles du dossier *tuile_modele* et *annotations* pour y mettre vos tuiles du dossier *tuile_masque*
+
 # 🌟 Créer votre propre modèle de deep learning 🌟
 
 Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour entraîner votre modele et le tester sur les images de cartes anciennes que vous voulez. Enjoy! (◕‿◕✿)
