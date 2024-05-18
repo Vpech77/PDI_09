@@ -44,7 +44,7 @@ C'est avec le script python *model_training.py* que vous allez entraîner votre 
 
 ### 💯 Test du modèle 💯
 
-- C'est avec le script *model_testing* que vous allez tester votre modèle. Tout d'abord, définissez dans le script, ligne 17 le nom du modèle que vous voulez tester et qui se trouve dans le dossier *model* ainsi que le nom du dossier contenant les images à tester, ce dossier doit se trouver dans le dossier *imgCartesAnciennes*. Ce dossier *imgCartesAnciennes* contient deux dossiers d'imagettes de cartes anciennes.
+- C'est avec le script *model_testing* que vous allez tester votre modèle. Tout d'abord, définissez dans le script, ligne 17 le nom du modèle que vous voulez tester et qui se trouve dans le dossier *model* ainsi que le nom du dossier contenant les images à tester, ce dossier doit se trouver dans le dossier *imgCartesAnciennes*.
   
 - Les images résultats du test se retrouvent automatiquement dans le dossier *output_testing*
 
