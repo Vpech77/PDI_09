@@ -22,6 +22,13 @@ Pour exécuter les scripts python de deep learning, il faut que vous ayez la ver
   pip install tensorflow==2.15
 ```
 
+# 🚀 Démarrage 🚀
+
+Lisez le Readme qui fait office de guide d'utilisateur dans le dossier 𝑺𝒘𝒂𝒎𝑷𝒚.
+
+Enjoy! ☜(⌒▽⌒)☞
+
+
 ## 🌱 L'équipe LostInSwamp 🌱
 
 - 🦊 Vanessa Pech 🦊
