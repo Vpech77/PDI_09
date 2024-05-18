@@ -1,5 +1,5 @@
 # 🐣 Guide d'utilisateur 🐣 
-L’équipe LostInSwamp est ravie de vous présenter Swampy, notre application créée avec énormément de passion.
+L’équipe 𝑳𝒐𝒔𝒕𝑰𝒏𝑺𝒘𝒂𝒎𝒑 est ravie de vous présenter 𝑺𝒘𝒂𝒎𝑷𝒚, notre application créée avec énormément de passion.
 Si vous voulez détecter des pictogrammes dans des images de cartes anciennes grâce à du deep learning, eh bien, Swampy est fait pour vous! Grâce à notre application, vous pouvez non seulement générer des jeux d’entraînement essentiels pour créer votre modèle, mais aussi créer votre propre modèle de deep learning avec les hyperparamètres que vous souhaitez! Amazing! ヽ(^o^)丿
 
 # ⭐ Générez votre dataset ⭐
