@@ -5,7 +5,7 @@
 ![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 
-Voici le répertoire du projet Géodev² 2024 du groupe PDI_09.
+Voici le répertoire du projet Géodev² 2024 du 𝐺𝑟𝑜𝑢𝑝𝑒 𝑃𝐷𝐼_09.
 
 # ⚙️ Installation ⚙️
 
