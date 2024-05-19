@@ -12,7 +12,7 @@ Voici le répertoire du projet Géodev² 2024 du 𝐺𝑟𝑜𝑢𝑝𝑒 𝑃�
 Cloner le projet
 
 ```bash
-  git clone [https://link-to-project](https://github.com/Vpech77/PDI_09.git)
+  git clone https://github.com/Vpech77/PDI_09.git
 ```
 
 Pour exécuter les scripts python de deep learning, il faut que vous ayez la version 2.15 de keras et de tensorflow.
