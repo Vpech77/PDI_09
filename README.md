@@ -38,6 +38,6 @@ Enjoy! ☜(⌒▽⌒)☞
 
 ## 🌳 Commanditaires 🌳
 
-- Hervé Quninquenel
+- Hervé Quinquenel
 - Guillaume Touya
 - Azelle Courtial
