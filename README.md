@@ -28,7 +28,7 @@ Lisez le Readme qui fait office de guide d'utilisateur dans le dossier 𝑺𝒘�
 
 Enjoy! ☜(⌒▽⌒)☞
 
-![alt text](https://github.com/Vpech77/PDI_09/Swampy/blob/logo/logo1.png?raw=true)
+![alt text](https://github.com/Vpech77/PDI_09/Swampy/logo/logo1.png?raw=true)
 
 
 ## 🌱 L'équipe LostInSwamp 🌱
