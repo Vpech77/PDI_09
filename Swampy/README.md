@@ -11,6 +11,7 @@ Pour rappel, le dataset est composé de tuiles d'images modèles de cartes poss�
 1. Editez et adaptez le script *model_mask_qgis.py* du dossier *creationImage* avec vos propres chemins de fichiers
 2. Lancez le script *model_mask_qgis.py* dans la console python de QGIS (`ctrl+alt+P`).
 3. Exportez votre projet en format PNG.
+4. Si cela ne fonctionne pas, se référer au guide technique et méthodologique.
 
 ## ✂️ Générer les tuiles de vos images ✂️
 
