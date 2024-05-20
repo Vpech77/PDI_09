@@ -1,14 +1,14 @@
 # 🐣 Guide d'utilisateur 🐣 
 L’équipe 𝑳𝒐𝒔𝒕𝑰𝒏𝑺𝒘𝒂𝒎𝒑 est ravie de vous présenter 𝑺𝒘𝒂𝒎𝑷𝒚, notre application créée avec énormément de passion.
-Si vous voulez détecter des pictogrammes dans des images de cartes anciennes grâce à du deep learning, eh bien, Swampy est fait pour vous! Grâce à notre application, vous pouvez non seulement générer des jeux d’entraînement essentiels pour créer votre modèle, mais aussi créer votre propre modèle de deep learning avec les hyperparamètres que vous souhaitez! Amazing! ヽ(^o^)丿
+Si vous voulez détecter des pictogrammes dans des images de cartes anciennes grâce à du deep learning, eh bien, Swampy est fait pour vous! Grâce à notre application, vous pouvez non seulement générer des jeux d’entraînement essentiels pour créer votre modèle, mais aussi créer votre propre modèle de deep learning avec les valeurs d'hyper-paramètres que vous souhaitez! Amazing! ヽ(^o^)丿
 
 # ⭐ Générez votre dataset ⭐
 
-Pour rappel, le dataset est composé de tuiles d'images modèles de cartes possédant des pictogrammes ou non et les tuiles du masque de ses images modèles.
+Pour rappel, le dataset est composé de tuiles d'images modèles de cartes possédant des pictogrammes ou non et les tuiles du masque de ces images modèles.
 
 ## 🎭 Créer votre masque dans votre projet QGIS 🎭
 
-1. Editez et adaptez le script *model_mask_qgis.py* du dossier *creationImage* avec vos propres chemin de fichier 
+1. Editez et adaptez le script *model_mask_qgis.py* du dossier *creationImage* avec vos propres chemins de fichiers
 2. Lancez le script *model_mask_qgis.py* dans la console python de QGIS (`ctrl+alt+P`).
 3. Exportez votre projet en format PNG.
 
@@ -16,11 +16,11 @@ Pour rappel, le dataset est composé de tuiles d'images modèles de cartes poss�
 
 1. Mettez toutes vos images PNG générées précédemment dans le dossier *modele* si ce sont des images modèles sinon dans le dossier *masque*.
 2. Lancez le script *createImagette.py*, attendez un peu et vous trouverez les tuiles dans les dossiers correspondant.
-3. Créer un dossier *Dataset* avec deux sous-dossier : *images* pour y mettre vos tuiles du dossier *tuile_modele* et *annotations* pour y mettre vos tuiles du dossier *tuile_masque*
+3. Créez un dossier *Dataset* avec deux sous-dossier : *images* pour y mettre vos tuiles du dossier *tuile_modele* et *annotations* pour y mettre vos tuiles du dossier *tuile_masque*
 
 # 🌟 Créer votre propre modèle de deep learning 🌟
 
-Dans le dossier *modeleDeepLearning*, vous avez tous ce qu'il vous faut pour entraîner votre modele et le tester sur les images de cartes anciennes que vous voulez. Enjoy! (◕‿◕✿)
+Dans le dossier *modeleDeepLearning*, vous avez tout ce qu'il vous faut pour entraîner votre modele et le tester sur les images de cartes anciennes que vous voulez. Enjoy! (◕‿◕✿)
 
 ## 🖥️ Avec un environnement local 🖥️
 
