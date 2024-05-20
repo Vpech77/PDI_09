@@ -41,7 +41,7 @@ C'est avec le script python *model_training.py* que vous allez entraîner votre 
     
       - le csv et le dataframe contenant les paramètres de performances du modèle
       - le graphique de ses performances
-      - une image résultat généré après chaque epoch : pour chaque epoch, le modèle s'entraîne avec toutes les images du jeu d'entrainement et tire au hasard une image dans le jeu de validation et après son entrainement se teste avec, c'est cette image qui est générée.
+      - une image résultat générée après chaque epoch : pour chaque epoch, le modèle s'entraîne avec toutes les images du jeu d'entraînement puis tire au hasard une image dans le jeu de validation pour en déduire le masque associé. C'est cette dernière image et le masque qu'il a généré qui s'affichent.
 
 ### 💯 Test du modèle 💯
 
